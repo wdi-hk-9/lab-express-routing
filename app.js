@@ -22,40 +22,26 @@ candyRouter.get('/candies/:id', function(req, res) {
 
 // CREATE
 candyRouter.post('/candies', function(req, res) {
-  newCandy = { "id": candy.length+1, "name": req.body.name , "color": req.body.color }
+  var newCandy = {
+    "id": candy.length+1, "name": req.body.name , "color": req.body.color
+  }
   candy.push(newCandy)
   res.json(candy);
 });
 
-// UPDATE
-candyRouter.get('/:id/edit', function(req, res) {
-  var path   = req.baseUrl + req.path;
-  var method = 'GET';
-  var action =  'EDIT';
-  console.log("%s request to %s, this is the %s action", method, path, action);
-  res.send('index');
+//UPDATE
+candyRouter.put('/:id', function(req,res){
+  var updateCandy =
+  candy[req.params.id-1];
+  candy.name = req.body.name;
+  candy.color = req.body.color;
+  candy.splice(updateCandy); //HOLY WOW WHAT DO I DO HERE
+  res.json(updateCandy);
 });
 
-
-candyRouter.put('/:id', function(req, res) {
-  var path   = req.baseUrl + req.path;
-  var method = 'PUT';
-  var action =  'UPDATE';
-  console.log("%s request to %s, this is the %s action", method, path, action);
-  res.send('index');
-});
-
-
-candyRouter.delete('/:id', function(req, res) {
-  var path   = req.baseUrl + req.path;
-  var method = 'DELETE';
-  var action =  'DELETE';
-  console.log("%s request to %s, this is the %s action", method, path, action);
-  res.send('index');
-});
 
 app.use("/candies", candyRouter);
-app.use('/', candyRouter);
+
 
 // Server Started
 app.listen(port);
