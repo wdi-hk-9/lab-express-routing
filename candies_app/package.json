@@ -1,0 +1,15 @@
+{
+  "name": "candies_app",
+  "version": "1.0.0",
+  "description": "create an API to keep track of candies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3"
+  }
+}
