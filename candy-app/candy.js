@@ -8,11 +8,4 @@ var candies = [
   {"id":4,"name":"Candy Stick","color":"Blue"}
 ];
 
-module.exports.candies = candies;
-
-module.exports.getCandyById = function(id){
-  for (var i = 0; i < candies.length; i++){
-    if (candies[i].id == id);
-      return candies[i];
-  }
-};
+module.exports = candies;
