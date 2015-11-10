@@ -44,9 +44,9 @@ router.route('/:id')
     res.json({message : 'deleted' });
   });
 
-// UPDATE
 // http://127.0.0.1:3000/candies/:id
 router.route('/:id/edit')
+  // UPDATE
   .put(function(req, res) {
     for (i in candies) {
       if (candies[i]["id"] == req.params.id) { candies[i] = req.body }
