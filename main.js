@@ -1,5 +1,5 @@
 var express = require('express');
-var my = require('./candy');
+var candy = require('./candy');
 var app     = express();
 // process is coming from node
 var port    = process.env.PORT || 3000;
@@ -9,20 +9,39 @@ var bodyParser = require('body-parser');
 //Middleware
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(function(req, res, next){
-  console.log ('%s request to %s from %s',
-                req.method,
-                req.path,
-                req.ip)
-  next();
-});
+
 
 //INDEX
 candyRouter.get('/', function(req, res) {
-    res.json(my.candy)
-  res.send('index');
+  res.json(candy);
 });
 
+//SHOW
+candyRouter.get('/:id', function(req, res) {
+  var showCandy = candy[req.params.id-1];
+  res.json(showCandy);
+});
+
+//CREATE
+candyRouter.post('/', function(req, res) {
+  var id = req.body.id;
+  var name = req.body.name;
+  var color = req.body.color;
+  res.json(id);
+});
+
+
+// UPDATE
+candyRouter.put('/:id', function(req,res){
+  var editCandy = candy[req.params.id-1];
+  res.json(editCandy);
+
+
+//DELETE
+candyRouter.delete('/:id', function(req,res){
+  var delCandy = candy.splice(req.params.id-1,1)
+  res.json(delCandy);
+})
 
 app.use("/candies", candyRouter);
 
