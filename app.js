@@ -3,34 +3,31 @@ var candy = require('./candy.js');
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
-var bodyParser = require('body-parser');
 var candyRouter = express.Router();
+var bodyParser = require('body-parser');
 
-// Configure EJS (template engine) with Express
-// app.set('views',       './views');
-app.set('view engine', 'json');
-
-// MIDDLEWARE
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
+// INDEX
 candyRouter.get('/', function(req, res) {
   res.json(candy);
 });
 
-
+// SHOW
 candyRouter.get('/candies/:id', function(req, res) {
   var candyId = candy[req.params.id-1];
   res.json(candyId);
 });
 
-
-candyRouter.post('/candies/new', function(req, res) {
-  var
-  res.json();
+// CREATE
+candyRouter.post('/candies', function(req, res) {
+  newCandy = { "id": candy.length+1, "name": req.body.name , "color": req.body.color }
+  candy.push(newCandy)
+  res.json(candy);
 });
 
-
+// UPDATE
 candyRouter.get('/:id/edit', function(req, res) {
   var path   = req.baseUrl + req.path;
   var method = 'GET';
