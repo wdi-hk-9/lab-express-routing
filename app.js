@@ -14,10 +14,14 @@ var bodyParser = require('body-parser');
   // Node.js body parsing middleware
   // https://www.npmjs.com/package/body-parser
 
-
-
 // http://expressjs.com/4x/api.html#express
 var app = express();
+
+// Custom Middleware
+app.use(function(req, res, next) {
+  console.log('%s request to %s from %s', req.method, req.path, req.ip);
+  next();
+});
 
 // https://www.npmjs.com/package/morgan#dev
 app.use(logger('dev'));
