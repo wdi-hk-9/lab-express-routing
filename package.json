@@ -1,0 +1,22 @@
+{
+  "name": "express-routing-lab",
+  "version": "1.0.0",
+  "description": "first express lab",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianienchoo/express-routing-lab.git"
+  },
+  "author": "Ian Choo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianienchoo/express-routing-lab/issues"
+  },
+  "homepage": "https://github.com/ianienchoo/express-routing-lab#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
