@@ -6,8 +6,8 @@ var candy = [
   },
   {
     'id':2,
-    'name': 'Chewing Gum',
-    'color': 'Red'
+    'name': 'Pez',
+    'color': 'Green'
   },
   {
     'id':3,

@@ -24,18 +24,17 @@ candyRouter.get('/:id', function(req, res) {
 
 //CREATE
 candyRouter.post('/', function(req, res) {
-  var id = req.body.id;
-  var name = req.body.name;
-  var color = req.body.color;
-  res.json(id);
+
 });
 
 
 // UPDATE
 candyRouter.put('/:id', function(req,res){
   var editCandy = candy[req.params.id-1];
+  editCandy.name = req.body.name;
+  editCandy.color = req.body.color;
   res.json(editCandy);
-
+});
 
 //DELETE
 candyRouter.delete('/:id', function(req,res){
