@@ -24,9 +24,9 @@ candyRouter.get('/:id', function(req, res) {
 
 //CREATE
 candyRouter.post('/', function(req, res) {
-
+  candy.push(req.body);
+  res.json(candy);
 });
-
 
 // UPDATE
 candyRouter.put('/:id', function(req,res){
