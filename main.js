@@ -5,10 +5,12 @@ var app     = express();
 var port    = process.env.PORT || 3000;
 var candyRouter = express.Router();
 var bodyParser = require('body-parser');
+var logger = require('morgan');
+
 
 //Middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(logger('dev'));
 
 
 //INDEX
