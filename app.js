@@ -20,7 +20,8 @@ candyRouter.get('/:id', function(req, res){
 
 //Create
 candyRouter.post('/', function(req, res){
-  res.json("This is Create");
+  var candy = candies.addCandy(req.params)
+  res.json(candy);
 });
 
 //Update
@@ -30,7 +31,8 @@ candyRouter.put('/:id', function(req, res){
 
 //delete
 candyRouter.delete('/:id', function(req, res){
-  res.json("This is Delete");
+  var candy = candies.getCandyById(req.params.id)
+  res.json(candy);
 });
 
 app.use('/candies', candyRouter) ///now it turns router become a middleware

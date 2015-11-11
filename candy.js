@@ -10,3 +10,6 @@ module.exports.getCandyById = function(id){
     if (candies[i].id == id) return candies[i];
   }
 }
+module.exports.addCandy = function(object){
+  candies.push(object);
+}
